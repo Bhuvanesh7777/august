@@ -1,0 +1,16 @@
+#programs on Filter function
+# Using filter() to remove negative numbers from the list  
+#numbers = [ 1, -2, 3, -4, 5, -6 ]  
+#result = list(filter(lambda x: x >= 0, numbers))  
+#print(result)  
+
+  
+# Using filter() to remove duplicate numbers from the list  
+#numbers = [ 1, 2, 3, 2, 4, 3, 5 ]  
+#result = list(filter(lambda x: numbers.count(x) == 1, numbers))  
+#print(result)  
+
+#Using filter() to find even or odd
+#l=eval(input('enter a numbers that you want in a single line sperated by comma(,): '))
+#f=filter(lambda n : True if n%2==0 else False,l)
+#print(list(f))
