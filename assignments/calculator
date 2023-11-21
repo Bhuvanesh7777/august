@@ -1,0 +1,57 @@
+class Calculator:
+    def __init__(self):
+        self.result = 0
+
+    def add(self, x, y):
+        self.result = x + y
+
+    def subtract(self, x, y):
+        self.result = x - y
+
+    def multiply(self, x, y):
+        self.result = x * y
+
+    def divide(self, x, y):
+        if y == 0:
+            return "Error! Division by zero."
+        self.result = x / y
+
+    def get_result(self):
+        return self.result
+
+
+calc = Calculator()
+
+while True:
+    print("Options:")
+    print("Enter 'add' for addition")
+    print("Enter 'subtract' for subtraction")
+    print("Enter 'multiply' for multiplication")
+    print("Enter 'divide' for division")
+    print("Enter 'clear' to reset the result")
+    print("Enter 'exit' to end the program")
+
+    user_input = input(": ")
+
+    if user_input == "exit":
+        print("Exiting the calculator program.")
+        break
+    elif user_input in ("add", "subtract", "multiply", "divide"):
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+
+        if user_input == "add":
+            calc.add(num1, num2)
+        elif user_input == "subtract":
+            calc.subtract(num1, num2)
+        elif user_input == "multiply":
+            calc.multiply(num1, num2)
+        elif user_input == "divide":
+            calc.divide(num1, num2)
+
+        print("Result:", calc.get_result())
+    elif user_input == "clear":
+        calc.result = 0
+        print("Result has been cleared.")
+    else:
+        print("Invalid input. Please try again.")

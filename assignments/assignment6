@@ -1,0 +1,82 @@
+class CareerPage:
+    def _init_(self):
+        self.jobs = []
+        self.applications = {}
+
+    def add_job_post(self, job_title, job_description):
+        job_id = len(self.jobs) + 1
+        self.jobs.append((job_id, job_title, job_description))
+        self.applications[job_id] = []
+
+    def list_jobs(self):
+        return [(job[0], job[1]) for job in self.jobs]
+
+    def apply_for_job(self, job_id, user_name):
+        if job_id in self.applications:
+            self.applications[job_id].append(user_name)
+            return True
+        return False
+
+    def get_job_applications(self, job_id):
+        if job_id in self.applications:
+            return self.applications[job_id]
+        return []
+
+class Admin:
+    def _init_(self, career_page):
+        self.career_page = career_page
+
+    def add_job_post(self, job_title, job_description):
+        self.career_page.add_job_post(job_title, job_description)
+
+    def view_applications(self, job_id):
+        applications = self.career_page.get_job_applications(job_id)
+        if not applications:
+            return "No applications for this job."
+        else:
+            return f"Applications for job {job_id}: {applications}"
+
+class User:
+    def _init_(self, career_page, user_name):
+        self.career_page = career_page
+        self.user_name = user_name
+
+    def view_jobs(self):
+        jobs = self.career_page.list_jobs()
+        return jobs
+
+    def apply_for_job(self, job_id):
+        success = self.career_page.apply_for_job(job_id, self.user_name)
+        if success:
+            return "Application submitted successfully."
+        else:
+            return "Invalid job ID. Application not submitted."
+
+career_page = CareerPage()
+
+while True:
+    print("\nSelect a role:")
+    print("1. Admin")
+    print("2. User")
+    print("3. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        admin = Admin(career_page)
+        print("\nAdmin Menu:")
+        print("1. Add Job Post")
+        print("2. View Applications")
+        admin_choice = input("Enter your choice: ")
+
+        if admin_choice == "1":
+            job_title = input("Enter job title: ")
+            job_description = input("Enter job description: ")
+            admin.add_job_post(job_title, job_description)
+            print("Job post added successfully.")
+        elif admin_choice == "2":
+            job_id = int(input("Enter job ID to view applications: "))
+            applications = admin.view_applications(job_id)
+            print(applications)
+        else:
+            print("Invalid choice.")
