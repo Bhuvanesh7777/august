@@ -1,0 +1,93 @@
+# 1.reverse a number
+#def reverse(lst):
+ #   new_lst=lst[::-1]
+  #  return new_lst
+#lst=[1,2,3,4,5]
+#print(reverse(lst))
+
+#2.to check it is a armstrong number or not
+#num = int(input("Enter 3-digit number : "))
+ 
+#sum = 0
+#temp = num
+#while temp > 0:
+  #  digit = temp % 10
+ #   sum += digit * digit * digit
+ #   temp = temp//10
+ 
+#if sum==num:
+   # print('It is an Armstrong number')
+#else:
+  #  print('It is not an Armstrong number')
+
+#3.palindrome or not
+ 
+#n=int(input("Enter number:"))
+#temp=n
+#rev=0
+#while(n>0):
+#    dig=n%10
+  #  rev=rev*10+dig
+  #  n=n//10
+#if(temp==rev):
+ #   print("The number is a palindrome!")
+#else:
+ #   print("The number isn't a palindrome!")
+
+#4.Python program to print Even Numbers in a List
+#list1 = [1,32,43,21,92,34]
+#for num in list1:
+#    if num % 2 == 0:
+ #       print(num,end=",")
+
+#5.Sum of number digits in string
+#n=int(input("Enter number"))
+#sum=0
+#for digit in str(n):
+ #   sum=sum+int(digit)
+#print("Sum of digits",sum)
+
+#6.Program to Find Largest Number in a List
+#list1 = [10, 20, 4, 45, 99]
+#list1.sort()
+#print("Largest element is:", list1[-1])
+
+#7.multiply of numbers in list
+#def multiplyList(xList) :
+ #    product = 1
+  #   for x in xList:
+#         product = product * x
+ #    return product
+     
+#list1 = [11, 3, 2]
+#print("Product of first list: ",multiplyList(list1))
+
+#8.count even and odd numbers
+#numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+#count_odd = 0
+#count_even = 0
+#for x in numbers:
+ #       if  x % 2:
+  #  	     count_even+=1
+  #      else:
+  #  	     count_odd+=1
+#print("Number of even numbers :",count_even)
+#print("Number of odd numbers :",count_odd)
+
+#9 swap two characters in a string
+#string = "hello world"   
+#char_list = list(string)  
+#char_list[2], char_list[6] = char_list[6], char_list[2] 
+#new_string = "".join(char_list) 
+#print(new_string)  
+
+#10. minimum of two numbers
+def minimum(a, b):
+     
+    if a <= b:
+        return a
+    else:
+        return b
+a = 2
+b = 4
+print(minimum(a, b))
